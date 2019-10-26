@@ -1,7 +1,7 @@
 # cfstep-aws-parameter-store
 Step to retrieve parameter values from AWS Parameter Store
 
-![AWS Parameter Store](icon.svg)
+![AWS Parameter Store](icon.svg =100x100)
 
 https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html
 
@@ -19,6 +19,8 @@ OR
 
 `AWS_CREDENTIALS_FILE` - You must base64 encode the file and add to the variable `AWS_CREDENTIALS_FILE` to use this step.
 
+`AWS_PROFILE` – Specifies the name of the CLI profile with the credentials and options to use. This can be the name of a profile stored in a credentials or config file, or the value default to use the default profile. If you specify this environment variable, it overrides the behavior of using the profile named [default] in the configuration file.
+
 ```
   CreateAWSCredentialsFile:
     image: alpine:3.10
@@ -34,6 +36,11 @@ Step Arguments:
 
 | ENVIRONMENT VARIABLE | DEFAULT | TYPE | REQUIRED | DESCRIPTION |
 |----------------------------|----------|---------|----------|---------------------------------------------------------------------------------------------------------------------------------|
+| AWS_ACCESS_KEY_ID | null | string | For CLI | AWS Access Key |
+| AWS_CREDENTIALS_FILE | null | base64 | For Profile | base64 encoded credentials file |
+| AWS_DEFAULT_REGION | null | string | For CLI | AWS Region |
+| AWS_PROFILE | null | string | For Profile | AWS Profile |
+| AWS_SECRET_ACCESS_KEY | null | string | For CLI | AWS Secret Access Key |
 | PARAMETERS | null | string | Yes | Space delimited list of parameter names |
 
 Freestyle Usage:
