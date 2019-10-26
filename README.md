@@ -1,7 +1,7 @@
 # cfstep-aws-parameter-store
 Step to retrieve parameter values from AWS Parameter Store
 
-![AWS Parameter Store](icon.svg =100x100)
+<img src="icon.svg" width="100" height="100">
 
 https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html
 
