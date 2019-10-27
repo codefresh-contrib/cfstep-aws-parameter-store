@@ -1,4 +1,4 @@
-image: dustinvanbuskirk/cfstep-aws-parameter-store:alpha
+image: codefreshplugins/cfstep-aws-parameter-store:alpha
 categories:
   - Utility
 version: 0.0.1
@@ -11,7 +11,7 @@ sources:
 maintainers:
   - name: Dustin Van Buskirk
     email: dustinb@codefresh.io
-icon: https://raw.githubusercontent.com/codefresh-contrib/cfstep-aws-parameter-store/master/icon.svg
+icon: https://raw.githubusercontent.com/codefresh-contrib/cfstep-aws-parameter-store/master/icon.svg?sanitize=true
 envs:
   - name: AWS_ACCESS_KEY_ID
     description: "AWS Access Key, used for CLI Credentials."
@@ -21,5 +21,7 @@ envs:
     description: "AWS Profile, used for Credentials file."
   - name: AWS_SECRET_ACCESS_KEY
     description: "AWS Secret Access Key, user for CLI Credentials."
+  - name: AWS_SHARED_CREDENTIALS_FILE
+    description: "Path to AWS Credentials file"
   - name: PARAMETERS
     description: "Space delimited list of parameter names."

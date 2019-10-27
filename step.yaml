@@ -1,7 +1,7 @@
 kind: step-type
 version: '1.0'
 metadata:
-  name: dustinvanbuskirk/aws-parameter-store
+  name: aws-parameter-store
   version: 0.0.1
   isPublic: false
   description: Gathers parameters from AWS Parameter Store
@@ -98,7 +98,7 @@ spec:
   steps:
     main:
       name: aws-parameter-store
-      image: dustinvanbuskirk/cfstep-aws-parameter-store:alpha
+      image: codefreshplugins/cfstep-aws-parameter-store
       environment:
         - 'AWS_ACCESS_KEY_ID=${{AWS_ACCESS_KEY_ID}}'
         - 'AWS_DEFAULT_REGION=${{AWS_DEFAULT_REGION}}'

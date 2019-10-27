@@ -41,13 +41,14 @@ Step Arguments:
 | AWS_DEFAULT_REGION | null | string | For CLI | AWS Region |
 | AWS_PROFILE | null | string | For Profile | AWS Profile |
 | AWS_SECRET_ACCESS_KEY | null | string | For CLI | AWS Secret Access Key |
+| AWS_SHARED_CREDENTIALS_FILE | null | string | For Profile | Path to AWS Credentials file |
 | PARAMETERS | null | string | Yes | Space delimited list of parameter names |
 
 Freestyle Usage:
 
 ```
   GetAWSParameters:
-    image: dustinvanbuskirk/cfstep-aws-parameter-store:alpha
+    image: codefreshplugins/cfstep-aws-parameter-store:alpha
     title: Gather AWS Parameters...
     environment:
     - 'PARAMETERS=${{PARAMETERS}}'

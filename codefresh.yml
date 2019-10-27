@@ -3,19 +3,16 @@ steps:
   BuildingDockerImage:
     title: Building Docker Image
     type: build
-    image_name: codefreshplugins/cfstep-msteams-notifier
+    image_name: codefreshplugins/cfstep-aws-parameter-store
     working_directory: ./
-    tag: ${{PYMSTEAMS_VERSION}}
     dockerfile: Dockerfile
-    build_arguments:
-    - PYMSTEAMS_VERSION=${{PYMSTEAMS_VERSION}}
   PushingToDockerRegistry:
     title: Pushing to Docker Registry
     type: push
     candidate: ${{BuildingDockerImage}}
     tags:
     - latest
-    - 0.1.0
+    - 0.0.1
     registry: dockerhub
     when:
       branch:
