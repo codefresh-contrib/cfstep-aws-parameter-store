@@ -52,5 +52,6 @@ Freestyle Usage:
     environment:
     - 'PARAMETERS=${{PARAMETERS}}'
     commands:
-    - aws ssm get-parameters --names ${PARAMETERS} --with-decryption --query "Parameters[*].{Name:Name,Value:Value}" | jq '.[] | {"key": .Name, "value": .Value} | "\(.key)=\(.value)"' | tr -d '"' >> ${{CF_VOLUME_PATH}}/env_vars_to_export
+    - >-
+      aws ssm get-parameters --names ${PARAMETERS} --with-decryption --query "Parameters[*].{Name:Name,Value:Value}" | jq '.[] | {"key": .Name, "value": .Value} | "\(.key)=\(.value)"' | tr -d '"' >> /codefresh/volume/env_vars_to_export
 ```

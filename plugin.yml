@@ -1,0 +1,25 @@
+image: dustinvanbuskirk/cfstep-aws-parameter-store:alpha
+categories:
+  - Utility
+version: 0.0.1
+description: "Get parameters from AWS Parameter Store"
+keywords:
+  - aws
+  - parameters
+sources:
+  - https://github.com/codefresh-contrib/cfstep-azure-key-vault
+maintainers:
+  - name: Dustin Van Buskirk
+    email: dustinb@codefresh.io
+icon: https://raw.githubusercontent.com/codefresh-contrib/cfstep-aws-parameter-store/master/icon.svg
+envs:
+  - name: AWS_ACCESS_KEY_ID
+    description: "AWS Access Key, used for CLI Credentials."
+  - name: AWS_DEFAULT_REGION
+    description: "AWS Region, used for CLI Credentials."
+  - name: AWS_PROFILE
+    description: "AWS Profile, used for Credentials file."
+  - name: AWS_SECRET_ACCESS_KEY
+    description: "AWS Secret Access Key, user for CLI Credentials."
+  - name: PARAMETERS
+    description: "Space delimited list of parameter names."
