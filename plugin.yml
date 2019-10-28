@@ -11,7 +11,7 @@ sources:
 maintainers:
   - name: Dustin Van Buskirk
     email: dustinb@codefresh.io
-icon: https://raw.githubusercontent.com/codefresh-contrib/cfstep-aws-parameter-store/master/icon.svg?sanitize=true
+icon: https://cdn.jsdelivr.net/gh/codefresh-contrib/cfstep-aws-parameter-store/icon.svg
 envs:
   - name: AWS_ACCESS_KEY_ID
     description: "AWS Access Key, used for CLI Credentials."
