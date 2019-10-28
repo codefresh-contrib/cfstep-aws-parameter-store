@@ -1,4 +1,4 @@
-# cfstep-aws-parameter-store
+# cfstep-aws-parameter-store [![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/codefresh-inc/steps%2Faws-get-parameter?branch=master&key=eyJhbGciOiJIUzI1NiJ9.NTY3MmQ4ZGViNjcyNGI2ZTM1OWFkZjYy.AN2wExsAsq7FseTbVxxWls8muNx_bBUnQWQVS8IgDTI&type=cf-1)]( https://g.codefresh.io/pipelines/aws-get-parameter/builds?repoOwner=codefresh-contrib&repoName=cfstep-aws-parameter-store&serviceName=codefresh-contrib%2Fcfstep-aws-parameter-store&filter=trigger:build~Build;branch:master;pipeline:5db7058d0c7c5af50b1de706~aws-get-parameter)
 Step to retrieve parameter values from AWS Parameter Store
 
 <img src="icon.svg" width="100" height="100">
