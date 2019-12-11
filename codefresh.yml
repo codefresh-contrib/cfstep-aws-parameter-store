@@ -1,25 +1,32 @@
-version: "1.0"
+version: '1.0'
 steps:
-  main_clone:
-      title: Cloning main repository...
-      type: git-clone
-      repo: ${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}
-      revision: ${{CF_REVISION}}
-  BuildingDockerImage:
+  Clone_repo:
+    type: git-clone
+    arguments:
+      repo: codefresh-contrib/cfstep-aws-parameter-store
+      git: github
+      revision: '${{CF_REVISION}}'
+  GetImageVersion:
+    title: "Export package version"
+    image: codefresh/cli
+    working_directory: steps/incubating/run-jenkins-jobs
+    commands:
+    - 'export IMAGE_VERSION=$(cat step.yaml | yq -r .metadata.version)'
+    - "echo Current version: $IMAGE_VERSION"
+    - "cf_export IMAGE_VERSION"
+  BuildImage:
     title: Building Docker Image
     type: build
-    image_name: codefreshplugins/cfstep-aws-parameter-store
-    working_directory: ./
-    dockerfile: Dockerfile
-  PushingToDockerRegistry:
-    title: Pushing to Docker Registry
+    working_directory: cfstep-aws-parameter-store
+    image_name: codefresh/aws-parameter-store
+    tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
+  PushingToRegistry:
     type: push
-    candidate: ${{BuildingDockerImage}}
-    tags:
-    - latest
-    - 0.0.1
     registry: dockerhub
+    title: Pushing To Registry
+    candidate: ${{BuildImage}}
+    tags: [ "latest", "${{IMAGE_VERSION}}" ]
     when:
       branch:
         only:
-        - master
+          - master
