@@ -7,6 +7,7 @@ ENV JQ_VERSION "1.6-r0"
 
 RUN apk add --update \
   jq=1.6-r0 \
+  bash \
   && rm -rf /var/cache/apk/*
 
 # Install AWS CLI
@@ -19,3 +20,7 @@ LABEL python="3.8.0"
 LABEL aws-cli="${AWSCLI_VERSION}"
 
 VOLUME /root/.aws
+
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
