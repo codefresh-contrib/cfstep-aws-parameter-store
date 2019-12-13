@@ -20,7 +20,7 @@ function getParamsWIthCredentials {
     fi
     echo "Use provided credentials."
     rm -r ${CF_VOLUME_PATH}/.aws >> /dev/null 2>&1
-    aws ssm get-parameters --names ${PARAMETERS} --with-decryption --query "Parameters[*].{Name:Name,Value:Value}" | jq '.[] | {"key": .Name, "value": .Value} | "\(.key)=\(.value)"' | tr -d '"' >> /codefresh/volume/env_vars_to_export
+    aws ssm get-parameters --names ${PARAMETERS} --with-decryption --query "Parameters[*].{Name:Name,Value:Value}" | jq '.[] | {"key": .Name, "value": .Value} | "\(.key)=\(.value)"' | tr -d '"' >> /codefresh/volume/*/env_vars_to_export
     result=$?
     if [ $result -eq 0 ]; then
         echo "Parameters exported"
@@ -47,7 +47,7 @@ else
         echo "Please provide AWS_PROFILE"
         exit 1
     fi
-    aws ssm get-parameters --profile ${AWS_PROFILE} --names ${PARAMETERS} --with-decryption --query "Parameters[*].{Name:Name,Value:Value}" | jq '.[] | {"key": .Name, "value": .Value} | "\(.key)=\(.value)"' | tr -d '"' >> /codefresh/volume/env_vars_to_export
+    aws ssm get-parameters --profile ${AWS_PROFILE} --names ${PARAMETERS} --with-decryption --query "Parameters[*].{Name:Name,Value:Value}" | jq '.[] | {"key": .Name, "value": .Value} | "\(.key)=\(.value)"' | tr -d '"' >> /codefresh/volume/*/env_vars_to_export
     result=$?
     if [ $result -eq 0 ]; then
         echo "Parameters exported"
