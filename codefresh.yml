@@ -20,6 +20,7 @@ steps:
     working_directory: cfstep-aws-parameter-store
     image_name: codefresh/aws-parameter-store
     tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
+    disable_push: true
   PushingToRegistry:
     type: push
     registry: dockerhub
